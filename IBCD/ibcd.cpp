@@ -1,9 +1,11 @@
 #include <iostream>
+#include <string>
 
 
 int main()
 {
-	std::cout << "Hello, IBCD." << std::endl;
+	std::string hello{ "Hello, IBCD" };
+	std::cout << hello << std::endl;
 
 	return 0;
 }
