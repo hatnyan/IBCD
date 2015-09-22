@@ -3,12 +3,17 @@
 #include <GL\glew.h>
 #include <glm\glm.hpp>
 #include <tiny_obj_loader.h>
+#include "Camera.h"
 #include "Scene.h"
 
 class SampleScene : public Scene
 {
 public:
 	SampleScene(int width, int height, const char* title);
+
+	virtual void mouseButtonCallback(int button, int action, int mods);
+	virtual void cursorPositionCallback(double x, double y);
+	virtual void keyCallback(int key, int scancode, int action, int mods);
 
 	virtual void initializeScene();
 	virtual void process(double t);
@@ -21,4 +26,6 @@ private:
 	GLuint EBO, VAO, VBO;
 	int width, height;
 	double time;
+	Camera camera;
+
 };

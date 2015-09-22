@@ -18,6 +18,43 @@ SampleScene::SampleScene(int width, int height, const char * title) :
 	this->height = height;
 }
 
+void SampleScene::mouseButtonCallback(int button, int action, int mods)
+{
+	double x, y;
+	glfwGetCursorPos(window, &x, &y);
+	camera.SetPos(button, action, x, y);
+}
+
+void SampleScene::cursorPositionCallback(double x, double y)
+{
+	camera.Move2D(x, y);
+}
+
+void SampleScene::keyCallback(int key, int scancode, int action, int mods)
+{
+	switch (key)
+	{
+	case GLFW_KEY_W:
+		camera.Move(FORWARD);
+		break;
+	case GLFW_KEY_A:
+		camera.Move(LEFT);
+		break;
+	case GLFW_KEY_S:
+		camera.Move(BACK);
+		break;
+	case GLFW_KEY_D:
+		camera.Move(RIGHT);
+		break;
+	case GLFW_KEY_LEFT_CONTROL:
+		camera.Move(DOWN);
+		break;
+	case GLFW_KEY_SPACE:
+		camera.Move(UP);
+		break;
+	}
+}
+
 void SampleScene::initializeScene()
 {
 	
@@ -48,13 +85,15 @@ void SampleScene::initializeScene()
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 
-	
+	camera.SetViewport(0, 0, width, height);
+	camera.SetClipping(0.5, 100);
+	camera.SetPosition(glm::vec3(0, 0, 10));
 }
 
 void SampleScene::process(double t)
 {
 	time = t;
-	
+	camera.Update();
 }
 
 void SampleScene::render()
@@ -63,10 +102,10 @@ void SampleScene::render()
 	glfwMakeContextCurrent(window);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-	glm::vec3 cameraPos{ 5 * glm::cos(time),0,5 * glm::sin(time) };
-	glm::mat4 ModelView = glm::lookAt(cameraPos, glm::vec3{ 0,0,0 }, glm::vec3{ 0,1,0 });
+	glm::mat4 Projection, View, Model, ModelView;
+	camera.GetMatricies(Projection, View, Model);
+	ModelView = View * Model;
 	glm::mat3 NormalMatrix = glm::transpose(glm::inverse(glm::mat3(ModelView)));
-	glm::mat4 Projection = glm::perspective(glm::radians(45.0f), width / (float)height, 0.1f, 100.f);
 	glm::mat4 MVP = Projection * ModelView;
 
 	glEnable(GL_CULL_FACE);

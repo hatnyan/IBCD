@@ -39,6 +39,9 @@
     <ClCompile Include="Shader.cpp">
       <Filter>GL</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="ibcdexcept.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>GL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
