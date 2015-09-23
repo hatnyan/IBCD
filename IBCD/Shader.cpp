@@ -1,13 +1,4 @@
-#include "easylogging++.h"
 
-#include <fstream>
-#include <filesystem>
-#include <iostream>
-#include <vector>
-
-
-#include <GL\glew.h>
-#include "ibcdexcept.h"
 #include "Shader.h"
 
 using namespace std::tr2::sys;

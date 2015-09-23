@@ -150,7 +150,10 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="DepthPeelingScene.cpp" />
     <ClCompile Include="ibcd.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="SampleScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -158,9 +161,12 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="DepthPeelingScene.h" />
     <ClInclude Include="easylogging++.h" />
     <ClInclude Include="ibcd.h" />
     <ClInclude Include="ibcdexcept.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="SampleScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />

@@ -9,8 +9,8 @@ Camera::Camera() {
 	rotation_quaternion = glm::quat(1, 0, 0, 0);
 	camera_position_delta = glm::vec3(0, 0, 0);
 	camera_scale = .25f;
-	max_pitch_rate = 0.01;
-	max_heading_rate = 0.01;
+	max_pitch_rate = 0.02;
+	max_heading_rate = 0.02;
 	move_camera = false;
 }
 Camera::~Camera() {
@@ -55,8 +55,7 @@ void Camera::Update() {
 	}
 	//compute the MVP
 	view = glm::lookAt(camera_position, camera_look_at, camera_up);
-	model = glm::mat4(1.0f);
-	MVP = projection * view * model;
+	
 	
 }
 
@@ -195,8 +194,17 @@ void Camera::GetViewport(int &loc_x, int &loc_y, int &width, int &height) {
 	height = window_height;
 }
 
-void Camera::GetMatricies(glm::mat4 &P, glm::mat4 &V, glm::mat4 &M) {
+void Camera::GetMatricies(glm::mat4 &P, glm::mat4 &V) {
 	P = projection;
 	V = view;
-	M = model;
+}
+
+glm::mat4 & Camera::GetViewMatrix()
+{
+	return this->view;
+}
+
+glm::mat4 & Camera::GetProjectionMatrix()
+{
+	return this->projection;
 }

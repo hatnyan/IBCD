@@ -61,7 +61,7 @@ void SampleScene::initializeScene()
 	phongShader = Shader::LoadShaderFromFile("shader/basic");
 
 	std::string objFile = "models/armadillo.model";
-	std::string err = tinyobj::LoadObj(shapes, materials, objFile.c_str());
+	std::string err = tinyobj::LoadObj(shapes, materials, objFile.c_str(), "models/");
 	if (!err.empty()) {
 		LOG(INFO) << err;
 		throw std::runtime_error("model load failed.");
@@ -102,9 +102,10 @@ void SampleScene::render()
 	glfwMakeContextCurrent(window);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-	glm::mat4 Projection, View, Model, ModelView;
-	camera.GetMatricies(Projection, View, Model);
-	ModelView = View * Model;
+	glm::mat4 ModelView;
+	glm::mat4& View = camera.GetViewMatrix();
+	glm::mat4& Projection = camera.GetProjectionMatrix();
+	ModelView = View;
 	glm::mat3 NormalMatrix = glm::transpose(glm::inverse(glm::mat3(ModelView)));
 	glm::mat4 MVP = Projection * ModelView;
 
@@ -112,8 +113,8 @@ void SampleScene::render()
 	glEnable(GL_DEPTH_TEST);
 
 	glUseProgram(phongShader);
-	glm::vec4 lightPos{ 0,3,0,1};
-	glm::vec3 lightIntensity{ 1,1,1 };
+	glm::vec4 lightPos{ 0,0,0,1};
+	glm::vec3 lightIntensity{ 0.8,0.8,0.2 };
 	glUniform4fv(0, 1, glm::value_ptr(lightPos)); //light position
 	glUniform3fv(1, 1, materials[0].diffuse); //Kd
 	glUniform3fv(2, 1, glm::value_ptr(lightIntensity)); //Ld

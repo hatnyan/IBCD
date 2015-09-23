@@ -42,6 +42,15 @@
     <ClCompile Include="Camera.cpp">
       <Filter>GL</Filter>
     </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthPeelingScene.cpp">
+      <Filter>シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -66,6 +75,15 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthPeelingScene.h">
+      <Filter>シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
       <Filter>GL</Filter>
     </ClInclude>
   </ItemGroup>

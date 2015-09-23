@@ -67,7 +67,9 @@ public:
 	//Getting Functions
 	CameraType GetMode();
 	void GetViewport(int &loc_x, int &loc_y, int &width, int &height);
-	void GetMatricies(glm::mat4 &P, glm::mat4 &V, glm::mat4 &M);
+	void GetMatricies(glm::mat4 &P, glm::mat4 &V);
+	glm::mat4& GetViewMatrix();
+	glm::mat4& GetProjectionMatrix();
 
 	CameraType camera_mode;
 
@@ -101,8 +103,7 @@ public:
 
 	glm::mat4 projection;
 	glm::mat4 view;
-	glm::mat4 model;
-	glm::mat4 MVP;
+	
 
 };
 #endif
