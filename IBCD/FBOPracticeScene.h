@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "easylogging++.h"
@@ -15,10 +16,10 @@
 #include "Scene.h"
 #include "Shader.h"
 
-class DPScene : public Scene
+class FBOPracticeScene : public Scene
 {
 public:
-	DPScene(int width, int height, const char* title);
+	FBOPracticeScene(int width, int height, const char* title);
 
 	virtual void mouseButtonCallback(int button, int action, int mods);
 	virtual void cursorPositionCallback(double x, double y);
@@ -37,5 +38,7 @@ private:
 	Light light;
 
 	GLuint FrameBuffer, colorTexture, depthTexture;
+
+	GLuint quadVAO, quadVBO, quadShader;
 };
 #pragma once

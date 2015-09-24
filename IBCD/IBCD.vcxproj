@@ -151,6 +151,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DepthPeelingScene.cpp" />
+    <ClCompile Include="FBOPracticeScene.cpp" />
     <ClCompile Include="ibcd.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -163,6 +164,8 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DepthPeelingScene.h" />
     <ClInclude Include="easylogging++.h" />
+    <ClInclude Include="FBOPracticeScene.h" />
+    <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="ibcd.h" />
     <ClInclude Include="ibcdexcept.h" />
     <ClInclude Include="Light.h" />
@@ -172,6 +175,9 @@
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shader\ADS.frag" />
+    <None Include="shader\ADS.vert" />
+    <None Include="shader\basic.frag" />
     <None Include="shader\basic.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -51,6 +51,9 @@
     <ClCompile Include="Light.cpp">
       <Filter>GL</Filter>
     </ClCompile>
+    <ClCompile Include="FBOPracticeScene.cpp">
+      <Filter>シーン</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -86,9 +89,24 @@
     <ClInclude Include="Light.h">
       <Filter>GL</Filter>
     </ClInclude>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="FBOPracticeScene.h">
+      <Filter>シーン</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shader\basic.vert">
+      <Filter>シェーダ</Filter>
+    </None>
+    <None Include="shader\ADS.frag">
+      <Filter>シェーダ</Filter>
+    </None>
+    <None Include="shader\ADS.vert">
+      <Filter>シェーダ</Filter>
+    </None>
+    <None Include="shader\basic.frag">
       <Filter>シェーダ</Filter>
     </None>
   </ItemGroup>
